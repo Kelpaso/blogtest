@@ -51,16 +51,17 @@ def post_draft_list(request):
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
-    return redirect(request.headers['Referer']) # The referring page
+    url_referer = request.headers['Referer'] # The referring page
+    return redirect(url_referer)
 
 @login_required
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     url_referer = request.headers['Referer'] # The referring page
-    if url_referer.find('/post/') == -1:
-        return redirect(request.headers['Referer'])
-    return redirect('post_list')
+    if '/post/' in url_referer:
+        return redirect('post_list')
+    return redirect(url_referer)
 
 def sing_in(request):
     if request.method == 'GET':
