@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'user_profile' %}">Info</a></li>
+                <li class="active"><a href="#">Posts</a></li>
+                <li><a href="{% url 'profile_comments' %}">Comments</a></li>
+                <li><a href="{% url 'profile_edit' %}">Edit</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content-section">
+        {% for post in posts %}
+            <div class="main-post">
+                <div class="row">
+                    <h1 class="col-md-10"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                    <a class="btn btn-default col-md-2" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                </div>
+                <div class="row">
+                    <a class= "col-md-9" href="{% url 'post_detail' pk=post.pk %}" ><span class="glyphicon glyphicon-comment">&nbsp;</span>{{ post.approved_comments.count }}</a>
+                    <p class="date col-md-3">{{ post.created_date }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

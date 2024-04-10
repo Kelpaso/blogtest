@@ -34,6 +34,10 @@
             </div>
             <strong>{{ comment.author }}</strong>
             <p>{{ comment.text|linebreaksbr }}</p>
+            <div class="comment_likes">
+                <button type="button" name="button" class="btn btn-outline-success"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                <span>{{ comment.likes }}</span>
+            </div>
         </div>
         {% endif %}
     {% empty %}

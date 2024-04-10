@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Info</a></li>
+                <li><a href="{% url 'profile_posts' %}">Posts</a></li>
+                <li><a href="{% url 'profile_comments' %}">Comments</a></li>
+                <li><a href="{% url 'profile_edit' %}">Edit</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content-section">
+        <div class="row align-items-start">
+            <div class="col-md-4">
+                <h1>Welcome {{user.username}}</h1>
+            </div>
+        </div>
+        <table class="table">
+            <tr>
+                <td><strong>User Name:</strong></td>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td><strong>E-mail:</strong></td>
+                <td>{{ user.email }}<a href="{% url 'email_confirm' %}">Please confirm your email</a></td>
+            </tr>
+            <tr>
+                <td><strong>Your Phone:</strong></td>
+                <td>{{ user.phone }}</td>
+            </tr>
+            <tr>
+                <td><strong>About me:</strong></td>
+                <td>{{ user.bio }}</td>
+            </tr>
+            <tr>
+                <td><strong>Date joined:</strong></td>
+                <td>{{ user.date_joined }}</td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-md-2">
+                <a href="{% url 'profile_delete' %}" class="btn btn-danger">Delete account <span class="glyphicon glyphicon-trash"></span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

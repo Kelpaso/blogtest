@@ -47,10 +47,6 @@ h1, h2, h3, h4 {
 }
 
 .main-post {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  border-radius: 4px;
   box-shadow: 0px 1px 0px gray;
   margin-bottom: 3vh;
   padding: 1.5vh;
@@ -66,4 +62,8 @@ h1, h2, h3, h4 {
 
 .comment {
   margin: 20px 0px 20px 20px;
+}
+
+.profile_heading {
+    padding: 2vh 0;
 }

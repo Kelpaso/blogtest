@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <form class="" method="POST">
+            {% csrf_token %}
+            <p>Are you really want to delete your account?</p>
+            <input type="submit" name="delete_yes" value="Yes, I'm sure" class="btn btn-info">
+            <input type="submit" name="delete_no" value="No,no,no,wait,wait" class="btn btn-danger">
+        </form>
+    </div>
+{% endblock %}

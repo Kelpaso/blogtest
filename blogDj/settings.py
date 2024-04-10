@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'usrProfile',
+    'crispy_forms',
+    'crispy_bootstrap4',
+    'phonenumber_field',
+    'mailer',
 ]
 
 MIDDLEWARE = [
@@ -124,4 +129,20 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'blog.User'
+
 LOGIN_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
+# Email Settings
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'heljango@gmail.com'
+EMAIL_HOST_PASSWORD = '205961286971PitMas'
+DEFAULT_FROM_EMAIL = 'heljango@gmail.com'
